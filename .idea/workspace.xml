@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55defd72-bd1d-4ff4-87e3-3b78ca6ccb49" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/BasicPyramidSolitaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/CardType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/GraphPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/IPair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/IPred2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Pyramid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/SideDeck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/StockDraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Suit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/model/hw02/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/src/cs3500/pyramidsolitaire/view/PyramidSolitaireTextualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/BasicPyramidSolitaireTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/CardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/GraphTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/IPairTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/PyramidTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/StockDrawTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/UtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/controller/PyramidSolitaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/controller/PyramidSolitaireTextualController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/BasicPyramidSolitaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/CardType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/DeckOfCards.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/GraphPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IDeck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IPair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IPred2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Pyramid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/PyramidSolitaireGameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/PyramidSolitaireModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/SideDeck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/StockDraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Suit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/view/PyramidSolitaireTextualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/view/PyramidSolitaireView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/Hw02TypeChecks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/Hw03TypeChecks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/BasicPyramidSolitaireTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/CardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/GraphTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/IPairTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/PyramidTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/StockDrawTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/test/model/UtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P1/image-organizer-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P1/image-organizer-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P2/find-person-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P2/find-person-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P3 [solved]/hp-family-tree-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/P3 [solved]/hp-family-tree-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P1/concat-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P1/concat-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P2 [solved]/merge-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P2 [solved]/merge-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P3/pattern-match-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P3/pattern-match-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P3/zip-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P3/zip-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P4 [solved]/pattern-match-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P4 [solved]/pattern-match-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P5/championship-bracket-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_2-One-Of/P5/championship-bracket-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/number-list.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/number-list.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/skip1-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/skip1-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/skipn-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/skipn-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L1 [complete]/skipn-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L2/sum-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L2/sum-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L2/sum-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v5.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v6.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/L3/same-house-as-parent-v7.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P1 [solved]/dropn-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P1 [solved]/dropn-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P1 [solved]/dropn-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P10/rev-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P10/rev-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P11/house-path-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P11/house-path-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P11/house-path-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P12/contains-key-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P12/contains-key-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P2 [solved]/replicate-elm-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P2 [solved]/replicate-elm-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P2 [solved]/replicate-elm-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P3 [solved]/strictly-decreasing-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P3 [solved]/strictly-decreasing-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P3 [solved]/strictly-decreasing-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P4/average-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P4/average-tr-starter.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P4/average-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P4/average-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P5/product-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P5/product-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P6/sum-n-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P6/sum-n-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P7/sum-odds-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P7/sum-odds-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P8/to-list-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P8/to-list-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P9/count-odd-even-tr-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/07_Accumulators/P9/count-odd-even-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/average-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/count-odd-even-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/product-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/sum-n-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/sum-odds-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/02_HowToCode-ComplexData(1)/to-list-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/L1 [complete]/fs-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/L1 [complete]/fs-v5.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/L1 [complete]/fs-v6.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/L1 [complete]/fs-v7.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P1/evaluate-boo-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P1/evaluate-boo-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P2/render-bst-w-lines-faster-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P2/render-bst-w-lines-faster-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P3 [solved]/evaluate-foo-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P3 [solved]/evaluate-foo-starter-briansolution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P3 [solved]/evaluate-foo-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P4/encapsulate-total-area-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P4/encapsulate-total-area-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P5 [solved]/championship-bracket-improved-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/P5 [solved]/championship-bracket-improved-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/03_Local/Q1 [solved]/local-design-quiz.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/From Examples 1 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/From Examples 2 - v2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/From Examples 3, pt 1 - v3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/From Examples 3, pt 2 - v3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/Introduction.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/parameterization-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/parameterization-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L1 [complete]/parameterization-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L2 [complete]/Using Built In Abstract Functions, pt. 1 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L2 [complete]/Using Built in Abstract Functions, pt 2 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L2 [complete]/using-built-ins-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L2 [complete]/using-built-ins-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/Closures - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/Fold Functions, pt 2 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/Fold Functions, pt. 1 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/Fold Functions, pt. 3 - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/closures-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/closures-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/L3 [complete]/fold-functions-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P1 [solved]/wide-only-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P1 [solved]/wide-only-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P10/weather-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P10/weather-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P10/weather.ss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P2/photos-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P2/photos-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P3/abstract-sum-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P3/abstract-sum-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P4/abstract-some-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P4/abstract-some-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P5/ellipses-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P5/ellipses-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P6/bag-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P6/bag-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P7/sum-n-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P7/sum-n-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P8 [solved]/fold-dir-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P8 [solved]/fold-dir-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P9 [solved]/accounts-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/P9 [solved]/accounts-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/04_Abstraction/Q1 [solved]/abstraction-quiz.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/L1 [complete]/fractals-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/L1 [complete]/fractals-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/L1 [complete]/fractals-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/L2 [complete]/termination-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/L2 [complete]/termination-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P1 [solved]/circle-fractal-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P1 [solved]/circle-fractal-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P2/van-koch-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P2/van-koch-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P3 [solved]/cantor-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/P3 [solved]/cantor-starter(1).rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/05_Generative Recursion/Q1 [solved]/genrec-quiz.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Introduction.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Data Definitions and Primitives - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Making the Wish List - v1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Making the Wish List Come True Part 1, pt 1 - v2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Making the Wish List Come True Part 1, pt 2 - v2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Making the Wish List Come True Part 2 - v3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Making the Wish List Come True Part 3 - v4.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Template Blending - starter.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- Terminology.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/Sudoku -- The Search Intuition.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/lambda Expressions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-constraints.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-starter - Brian Solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/L1 [complete]/sudoku-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P1/maze-2w-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P1/maze-2w-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P1/maze-2w-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P2/triangle-solitaire-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P2/triangle-solitaire-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P2/triangle-solitaire-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P2/triangle-solitaire-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P3/nqueens-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P3/nqueens-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P3/nqueens-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/06_Search/P3/nqueens-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L1 [complete]/Context Preserving Accumulators Part 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L1 [complete]/Context Preserving Accumulators, pt. 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L1 [complete]/Sample Problem skipn Part 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L1 [complete]/Sample Problem skipn Part 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L2 [complete]/Tail Recursion Part 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L2 [complete]/Tail Recursion Part 3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L2 [complete]/Tail Recursion Part 4.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L2 [complete]/Tail Recursion, Pt. 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulator Part 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulators 1, Part 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulators 1, Part 3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulators 2, Part 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulators 2, Part 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/Worklist Accumulators 2, Part 3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/WorklistAccumulators 2, Part 4.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v1.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v2.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v4.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v5.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v5.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v6.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v7.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/L3 [complete]/same-house-as-parent-v7.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P10 [solved]/rev-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P10 [solved]/rev-tr-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P11/house-path-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P11/house-path-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P5 [solved]/product-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P6 [solved]/sum-n-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P7 [solved]/sum-odds-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P8 [solved]/to-list-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/P9 [solved]/count-odd-even-tr-starter.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/07_Accumulators/Q1/accumulators-quiz.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/Graphs-v1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/Graphs-v2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/Graphs-v3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/Graphs-v4.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v1.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v2.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v2.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v3.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v3.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v4.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/L1 [Complete]/graphs-v5.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P1/all-reachable-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P1/all-reachable-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P2/count-rooms-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P2/count-rooms-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P3/lookup-room-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P3/lookup-room-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P4/max-exits-from-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P4/max-exits-from-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P5/max-exits-to-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/08_Graphs/P5/max-exits-to-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/09_Worked Problems/Merge Sort/Merge Sort Part 1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/09_Worked Problems/Merge Sort/Merge Sort Part 2.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L1 [complete]/lookup-in-list-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L1 [complete]/lookup-in-list-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L2 [complete]/bst-dd-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L2 [complete]/bst-dd-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L3 [complete]/lookup-in-bst-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L3 [complete]/lookup-in-bst-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L4 [complete]/render-bst-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/L4 [complete]/render-bst-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P1/count-nodes-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P1/count-nodes-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P2/sum-keys-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P2/sum-keys-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P3/height-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P3/height-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P4/insert-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P4/insert-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P5/balance-factor-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P5/balance-factor-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P6 [solved]/render-bst-w-lines-solution.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/10_BSTs/P6 [solved]/render-bst-w-lines-starter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/1743970571.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/CookiePolicyBanner.ae9551bee12c9ea625bf.38b8f714094e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/HtmlBlockPreview.f925f830cffbda809574.dca79041a72b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/MathJax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/ReactRenderer.e363422f19d2a926138c.7e567b1c3fc9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/XModuleShim.492072f387765a08f2cc.18b73520ca00.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/a1706490390.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/app_store_badge_135x40.d0558d910630.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/commons.d5de2bb2fd186b773839.153bcede3f04.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/default_50.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/djangojs.705ead69114e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/google_play_badge_45.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/header.309a1243e175.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/ie11_find_array.bd1c6dc7a133.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/jquery_extend_patch.54dddef28d15.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-base-application.8c893365eb2c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-base-vendor.188b06b0a06d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-course.34b104c96a42.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-footer-edx.c386522257ef.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-main-v1.99155a154361.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-proctoring.67a21fdd5640.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-style-course-vendor.dc9629c68006.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-style-student-notes.a35233ec9b00.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/lms-style-vendor.a44d8153e6e2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/logo-trademark.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/navigation.08930e16ab3d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/noreferrer.aa62a3e70ffa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Design Recipes HtC2x edX_files/require-config.38226099c6ad.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/CookiePolicyBanner.ae9551bee12c9ea625bf.38b8f714094e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/HtmlBlockPreview.f925f830cffbda809574.dca79041a72b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/MathJax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/ReactRenderer.e363422f19d2a926138c.7e567b1c3fc9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/XModuleShim.492072f387765a08f2cc.18b73520ca00.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/commons.d5de2bb2fd186b773839.153bcede3f04.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/djangojs.705ead69114e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/green-triangle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Homework 1/hw1dev.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Homework 1/hw1test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/10_repl.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/11_list_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/12_let_expressions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/13_nested_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/14_let_efficiency.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/15_options.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/3_our_first_program.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/5_errors_fixed.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/5_some_errors.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/6_shadowing.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/7_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/9_tuples.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Videos/13_nested_functions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Videos/14_let_and_efficiency.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Videos/15_options.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Videos/pieces_of_a_language.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/00_lecture_practice.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/21_records.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/22_tuples_as_syntactic_sugar.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/23_datatype_bindings.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/24_case_expressions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/25_useful_datatypes.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/27_type_synonyms.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/28_another_expression_example.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/29_list_and_option_datatypes.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/30_polymorphic_datatypes.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/31_eachof_pattern_matching.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/32_type_inference.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/33_polymorphic_and_equality_types.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/34_nested_patterns.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/35_more_nested_patterns.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/37_function_patterns.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/38_exceptions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/39_tail_recursion.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Code Files/40_accumulators.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Homework 2/hw2.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Homework 2/hw2test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/01_BuildingCompoundTypes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/02_Records.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/03_Tuples as Syntactic Sugar.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/04_Datatype Bindings.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/05_Case Expressions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/06_Useful Datatypes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/07_Pattern Matching So Far.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/08_Another Expression Example.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/09_Type Synonyms.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/10_Lists and Options are Datatypes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/11_Polymorphic Datatypes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/12_Each of Pattern Matching - Truth About Functions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/13_A Little Type Inference.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/14_Polymorphic and Equality Types.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/15_Nested Patterns.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/16_More Nested Patterns.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/17_Nested Pattern Precisely.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/18_Optional- Function Patterns.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/19_Exceptions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/20_Tail Recursion.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/21_Accumulators for Tail Recursion.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/02_Week 3/Section 2/Video Files/22_Perspective on Tail Recursion.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/42_functions_intro.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/43_functions_as_arguments.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/44_types_and_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/45_anonymous_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/46_unnecessary_function_wrapping.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/47_map_and_filter.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/48_generalizing_prior_topics.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/49_lexical_scope.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/50_lexical_scope_and_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/51_why_lexical_scope.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/52_closures_and_recomputation.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/53_fold_and_more_closures.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/54_combining_functions.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/55_currying.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/56_partial_application.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/57_currying_wrapup.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/58_mutable_references.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/59_callbacks.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/61_adts_with_closures.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/62_without_closures.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/63_java_without_closures.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Code Files/64_c_without_closures.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Homework 3/hw3.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Homework 3/hw3test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Extra Problems/E1Test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Extra Problems/P2.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Homework 1 - Rewrite/hw1dev.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Homework 1 - Rewrite/hw1test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Homework 2 - Rewrite/hw2.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Homework 2 - Rewrite/hw2test.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/P1.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/PracticeProblem/Practice Problems/PracticeProblemAnswers.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Video Files/Closure Idiom - Combining Functions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Video Files/Closure Idiom-Currying.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Video Files/Introduction to First-Class Functions.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/03_Week 4/Section 3/Video Files/Partial Application.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/66_what_is_type_inference.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/67_ml_type_inference.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/68_type_inference_examples.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/69_polymorphic_examples.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/70_other_inference.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/71_mutual_recursion.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/72_namespace_mgmt.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/73_signatures.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/74_module_example.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/75_signatures_for_example.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/77_equivalent_structure.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/78_another_equivalent_structure.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 5/Section 4/CodeFiles/79_modules_different_types.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/100_memoization.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/101_macros_intro.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/103_define_syntax.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/105_macro_examples.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/83_racket_intro.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/84_racket_basics.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/85_racket_lists.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/87_parens_matter.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/88_dynamic_typing.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/89_cond.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/90_local_bindings.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/91_toplevel_bindings.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/92_setbang.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/93_truth_about_cons.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/94_mcons.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/95_thunks.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/96_avoid_unnecessary.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/97_delay_force.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/98_using_streams.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/CodeFiles/99_defining_streams.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/compiled/drracket/errortrace/hw4_rkt.dep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/compiled/drracket/errortrace/hw4_rkt.zo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/hw4.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/hw4.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/hw4.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/hw4tests.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/Homework/hw4tests.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/ExtraPracticeProblems.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/ExtraPracticeProblems.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/ExtraPracticeTests.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/ExtraPracticeTests.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/compiled/drracket/errortrace/ExtraPracticeProblems_rkt.dep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/PracticeProblems/compiled/drracket/errortrace/ExtraPracticeProblems_rkt.zo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/04_Week 6 (Start of part B)/Section 5/VideoFiles/Memoization.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/compiled/drracket/errortrace/hw5_rkt.dep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/compiled/drracket/errortrace/hw5_rkt.zo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5Original.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5test.2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5test.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Homework/hw5test.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/Practice.2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/Practice.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/Practice.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/PracticeTests.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/PracticeTests.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/compiled/drracket/errortrace/Practice_rkt.dep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/PracticeProblems/compiled/drracket/errortrace/Practice_rkt.zo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Programming Files/107_datatypes_without_structs.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Programming Files/107_datatypes_without_structs.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Programming Files/108_datatypes_with_structs.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Programming Files/111_interpreter_assumptions.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/05_Week 7/Section 6/Programming Files/115_macros_via_functions.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/06_Week 8/Section 7/Code Files/120_static_vs_dynamic_one.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/06_Week 8/Section 7/Code Files/122_eval.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/123_ruby_intro.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/124_classes_objects.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/125_object_state.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/127_example.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/129_classes_dynamic.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/131_arrays.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/132_blocks.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/133_using_blocks.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/134_procs.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/135_hashes_ranges.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/136_subclassing.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/138_overriding.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/140_dynamic_dispatch_vs_closures.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/140_dynamic_dispatch_vs_closures.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Code Files/141_manual_dynamic_dispatch.rkt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Homework/hw6assignment.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Homework/hw6graphics.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Homework/hw6provided.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Homework/hw6runner.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/07_Week 9 (Start of part C)/Section 8/Homework/hw6test.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/142_fp_oo_decomposition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/142_fp_oo_decomposition.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/142_fp_oo_decomposition.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/143_adding_operations_or_variants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/143_adding_operations_or_variants.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/143_adding_operations_or_variants.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/144_binary_methods_fp.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/145_double_dispatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/145_double_dispatch.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/147_multiple_inheritance.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/CodeFiles/148_mixins.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/Homework/hw7.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/Homework/hw7.sml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/Homework/hw7testsprovided.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/08_Week 10/Homework/hw7testsprovided.sml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="34ShRLpWMAJPy9G4PmBYYMPOM62" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Hw03TypeChecks.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BasicPyramidSolitaireTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/briansauerborn/Library/Mobile Documents/com~apple~CloudDocs/OSSU/01_core_programming/03c_cs3500/Assignments/Assignment_03"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55defd72-bd1d-4ff4-87e3-3b78ca6ccb49" name="Changes" comment="" />
+      <created>1761212870954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761212870954</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
