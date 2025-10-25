@@ -3,14 +3,24 @@ package cs3500.pyramidsolitaire.controller;
 import cs3500.pyramidsolitaire.model.hw02.PyramidSolitaireModel;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PyramidSolitaireTextualController implements PyramidSolitaireController {
     Readable inStream;
     Appendable outStream;
 
     public PyramidSolitaireTextualController(Readable inStream, Appendable outStream) {
-        this.inStream = inStream;
-        this.outStream = outStream;
+        if (inStream != null && outStream != null) {
+            this.inStream = inStream;
+            this.outStream = outStream;
+        } else {
+            if (inStream == null) {
+                throw new IllegalArgumentException("No input stream supplied to controller.");
+            } else {
+                throw new IllegalArgumentException("No output stream supplied to controller.");
+            }
+        }
+
     }
 
     // TODO
