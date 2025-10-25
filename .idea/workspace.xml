@@ -27,43 +27,6 @@
       <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/PyramidTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/StockDrawTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Assignment_02/code/test/model/UtilTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/controller/PyramidSolitaireController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/controller/PyramidSolitaireTextualController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/BasicPyramidSolitaire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/CardType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/DeckOfCards.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/GraphPred.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IDeck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IPair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/IPred2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Pyramid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/PyramidSolitaireGameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/PyramidSolitaireModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/SideDeck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/StockDraw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Suit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/model/hw02/Vertex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/view/PyramidSolitaireTextualView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/cs3500/pyramidsolitaire/view/PyramidSolitaireView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/Hw02TypeChecks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/Hw03TypeChecks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/BasicPyramidSolitaireTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/CardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/GraphTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/IPairTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/PyramidTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/StockDrawTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/test/model/UtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-starter.rkt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v1.rkt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/01_Mutual-Reference/L1 [complete]/fs-v2.rkt" beforeDir="false" />
@@ -360,6 +323,7 @@
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/commons.d5de2bb2fd186b773839.153bcede3f04.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/djangojs.705ead69114e.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../01_HowToCode/Design Recipes Guide/Language CPSC110 edX_files/green-triangle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Homework 1/hw1dev.sml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Homework 1/hw1test.sml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../02_Programming Languages/01_Week 2 (Start of part A)/Section 1/Code Files/10_repl.txt" beforeDir="false" />
@@ -576,7 +540,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -588,6 +552,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.Hw03TypeChecks.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.BasicPyramidSolitaireTest.executor": "Run",
@@ -596,7 +561,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/briansauerborn/Library/Mobile Documents/com~apple~CloudDocs/OSSU/01_core_programming/03c_cs3500/Assignments/Assignment_03"
   }
 }]]></component>
