@@ -10,29 +10,16 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     Appendable outStream;
 
     public PyramidSolitaireTextualController(Readable inStream, Appendable outStream) {
-<<<<<<< Updated upstream
-        if (inStream != null && outStream != null) {
-=======
         if ((inStream != null) && (outStream != null)) {
->>>>>>> Stashed changes
             this.inStream = inStream;
             this.outStream = outStream;
         } else {
             if (inStream == null) {
-<<<<<<< Updated upstream
-                throw new IllegalArgumentException("No input stream supplied to controller.");
-            } else {
-                throw new IllegalArgumentException("No output stream supplied to controller.");
-            }
-        }
-
-=======
                 throw new IllegalArgumentException("Must provide an instream!");
             } else {
                 throw new IllegalArgumentException("Must provide an outstream!");
             }
         }
->>>>>>> Stashed changes
     }
 
     // TODO
