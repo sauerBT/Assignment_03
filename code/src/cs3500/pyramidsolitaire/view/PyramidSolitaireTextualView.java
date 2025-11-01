@@ -8,20 +8,7 @@ public class PyramidSolitaireTextualView implements PyramidSolitaireView{
     private final PyramidSolitaireModel<?> model;
     private Appendable outStream;
 
-    public PyramidSolitaireTextualView(PyramidSolitaireModel<?> model) {
-        this.model = model;
-    }
-
-<<<<<<< Updated upstream
-    public PyramidSolitaireTextualView(PyramidSolitaireModel<?> model, Appendable outStream) {
-        this.model = model;
-        this.outStream = outStream;
-    }
-
-=======
-<<<<<<< Updated upstream
     // TODO
-=======
     public PyramidSolitaireTextualView(PyramidSolitaireModel<?> model, Appendable outStream) {
         if (outStream != null) {
             this.model = model;
@@ -31,8 +18,6 @@ public class PyramidSolitaireTextualView implements PyramidSolitaireView{
         }
     }
 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     @Override
     public void render() throws IOException {
         this.outStream.append(this.model.toString());

@@ -1,8 +1,5 @@
 package view;
 
-<<<<<<< Updated upstream
-public class PyramidSolitaireViewTest {
-=======
 import cs3500.pyramidsolitaire.controller.PyramidSolitaireTextualController;
 import cs3500.pyramidsolitaire.model.hw02.BasicPyramidSolitaire;
 import cs3500.pyramidsolitaire.model.hw02.Card;
@@ -63,5 +60,5 @@ public class PyramidSolitaireViewTest {
         this.PSV01.render();
         assertEquals(renderExpected, this.outStream01.toString());
     }
->>>>>>> Stashed changes
+
 }
