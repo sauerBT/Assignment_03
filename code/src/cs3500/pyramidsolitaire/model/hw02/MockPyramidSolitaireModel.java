@@ -4,22 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MockPyramidSolitaireModel implements PyramidSolitaireModel<Card> {
-    Appendable log;
-    MockPyramidSolitaireModel(Appendable log) {
+    StringBuilder log;
+    public MockPyramidSolitaireModel(StringBuilder log) {
         this.log = log;
     }
 
     public List<Card> getDeck() { return new ArrayList<>(); }
 
-    public void startGame(List<Card> deck, boolean shuffle, int numRows, int numDraw) {}
+    public void startGame(List<Card> deck, boolean shuffle, int numRows, int numDraw) {
+        log.append(String.format("method = sg, deck = %s, shuffle = %b, numRows = %d, numDraw = %d\n", deck.toString(), shuffle, numRows, numDraw));
+    }
 
-    public void remove(int row1, int card1, int row2, int card2) throws IllegalStateException {}
+    public void remove(int row1, int card1, int row2, int card2) throws IllegalStateException {
+        log.append(String.format("method = rm2, row1 = %d, card1 = %d, row2 = %d, card2 = %d\n", row1, card1, row2, card2));
+    }
 
-    public void remove(int row, int card) throws IllegalStateException {}
+    public void remove(int row, int card) throws IllegalStateException {
+        log.append(String.format("method = rm1, row = %d, card = %d\n", row, card));
+    }
 
-    public void removeUsingDraw(int drawIndex, int row, int card) throws IllegalStateException {}
+    public void removeUsingDraw(int drawIndex, int row, int card) throws IllegalStateException {
+        log.append(String.format("method = rmwd, drawIndex = %d, row = %d, card = %d\n", drawIndex, row, card));
+    }
 
-    public void discardDraw(int drawIndex) throws IllegalStateException {}
+    public void discardDraw(int drawIndex) throws IllegalStateException {
+        log.append(String.format("method = dd, drawIndex = %d\n", drawIndex));
+    }
 
     public int getNumRows() { return 0; }
 
