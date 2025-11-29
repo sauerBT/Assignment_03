@@ -85,8 +85,8 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         if (scan.hasNextLine() && !model.isGameOver()) {
             this.transmitScore(model);
             String currentCommandLine = scan.nextLine(); // MUTATION: Extract next command line
-            String command = parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
-            List<Integer> inputs = parseInputs(currentCommandLine);
+            String command = CommandParser.parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
+            List<Integer> inputs = CommandParser.parseInputs(currentCommandLine);
             String executedCommand = this.executeCommand(model, view, inputs, command);
             if (!executedCommand.equals("q")) {
                 scanForInputRequestsHelper(model, view, scan);
@@ -94,41 +94,6 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         } else if (!model.isGameOver()) {
             this.transmitScore(model);
             scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
-        }
-    }
-
-    /**
-     * Produce the user command for the given command line.
-     *
-     * @param commandLine The given command line
-     * @return The command name.
-     */
-    private String parseCommand(String commandLine) {
-        Scanner commandLineScan = new Scanner(commandLine);
-        if (commandLineScan.hasNext()) {
-            return commandLineScan.next();
-        } else {
-            return "None";
-        }
-    }
-
-    /**
-     * Produce the command inputs for the given command line.
-     *
-     * @param commandLine The given command line.
-     * @return The command inputs as an integer array.
-     */
-    private List<Integer> parseInputs(String commandLine) {
-        Scanner commandLineScan = new Scanner(commandLine);
-        commandLineScan.next();
-        return parseInputsHelper(commandLineScan, new ArrayList<>());
-    }
-    private List<Integer> parseInputsHelper(Scanner commandLineScan, List<Integer> inputAcc) {
-        if (!commandLineScan.hasNextInt()) {
-            return inputAcc;
-        } else {
-            inputAcc.add(commandLineScan.nextInt());
-            return parseInputsHelper(commandLineScan, Util.ListUtil.clone(inputAcc));
         }
     }
 
@@ -195,6 +160,43 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
             outStream.append(String.format("Score: %d\n", score));
         } catch (IOException e) {
             throw new IllegalStateException("Unable to render score" + e);
+        }
+    }
+}
+
+class CommandParser {
+    /**
+     * Produce the user command for the given command line.
+     *
+     * @param commandLine The given command line
+     * @return The command name.
+     */
+    public static String parseCommand(String commandLine) {
+        Scanner commandLineScan = new Scanner(commandLine);
+        if (commandLineScan.hasNext()) {
+            return commandLineScan.next();
+        } else {
+            return "None";
+        }
+    }
+
+    /**
+     * Produce the command inputs for the given command line.
+     *
+     * @param commandLine The given command line.
+     * @return The command inputs as an integer array.
+     */
+    public static List<Integer> parseInputs(String commandLine) {
+        Scanner commandLineScan = new Scanner(commandLine);
+        commandLineScan.next();
+        return parseInputsHelper(commandLineScan, new ArrayList<>());
+    }
+    private static List<Integer> parseInputsHelper(Scanner commandLineScan, List<Integer> inputAcc) {
+        if (!commandLineScan.hasNextInt()) {
+            return inputAcc;
+        } else {
+            inputAcc.add(commandLineScan.nextInt());
+            return parseInputsHelper(commandLineScan, Util.ListUtil.clone(inputAcc));
         }
     }
 }
