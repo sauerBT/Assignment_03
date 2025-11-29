@@ -2,7 +2,10 @@ package cs3500.pyramidsolitaire.controller;
 
 import cs3500.pyramidsolitaire.model.hw02.PyramidSolitaireModel;
 import cs3500.pyramidsolitaire.model.hw02.Util;
+import cs3500.pyramidsolitaire.view.PyramidSolitaireTextualView;
+import cs3500.pyramidsolitaire.view.PyramidSolitaireView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,12 +31,31 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     @Override
     public <K> void playGame(PyramidSolitaireModel<K> model, List<K> deck, boolean shuffle, int numRows, int numDraw) {
         if (model != null) {
+            PyramidSolitaireView view = createView(model);
             transmitStartGame(model, deck, shuffle, numRows, numDraw);
-            scanForInputRequests(model);
+            scanForInputRequests(model, view);
         } else {
             throw new IllegalArgumentException("Provided model cannot be null!");
         }
     };
+
+    private <K> PyramidSolitaireView createView(PyramidSolitaireModel<K> model) {
+        return new PyramidSolitaireTextualView(model, outStream);
+    }
+
+    /**
+     * Transmit render request to the view.
+     *
+     * @param view The given view for the application.
+     * @throws IllegalStateException When view cannot complete rendering due to an IOException.
+     */
+    private void transmitRender(PyramidSolitaireView view) {
+        try {
+            view.render();
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render view" + e);
+        }
+    }
 
     /**
      * Send request to given model to start the game with the given conditions.
@@ -54,21 +76,24 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
      *
      * @param model The game model.
      */
-    private void scanForInputRequests(PyramidSolitaireModel<?> model) {
-        this.scanForInputRequestsHelper(model, new Scanner(this.inStream));
+    private void scanForInputRequests(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
+        this.scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
     }
 
-    private void scanForInputRequestsHelper(PyramidSolitaireModel<?> model, Scanner scan) {
-        if (scan.hasNextLine()) {
+    private void scanForInputRequestsHelper(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Scanner scan) {
+        this.transmitRender(view);
+        if (scan.hasNextLine() && !model.isGameOver()) {
+            this.transmitScore(model);
             String currentCommandLine = scan.nextLine(); // MUTATION: Extract next command line
-            String command = parseCommand(currentCommandLine); // TODO -- this could be its own data type (enum)
+            String command = parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
             List<Integer> inputs = parseInputs(currentCommandLine);
-            String executedCommand = this.executeCommand(model, inputs, command);
+            String executedCommand = this.executeCommand(model, view, inputs, command);
             if (!executedCommand.equals("q")) {
-                scanForInputRequestsHelper(model, scan);
+                scanForInputRequestsHelper(model, view, scan);
             }
-        } else {
-            scanForInputRequestsHelper(model, new Scanner(this.inStream));
+        } else if (!model.isGameOver()) {
+            this.transmitScore(model);
+            scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
         }
     }
 
@@ -107,13 +132,13 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         }
     }
 
-    private String executeCommand(PyramidSolitaireModel<?> model, List<Integer> inputs, String command) {
+    private String executeCommand(PyramidSolitaireModel<?> model, PyramidSolitaireView view, List<Integer> inputs, String command) {
         return switch (command) {
             case "rm1" -> this.runRemoveSingle(model, inputs);
             case "rm2" -> this.runRemoveDouble(model, inputs);
             case "rmwd" -> this.runRemoveUsingDraw(model, inputs);
             case "dd" -> this.runDiscardDraw(model, inputs);
-            case "q" -> this.quit(model);
+            case "q" -> this.quit(model, view);
             default -> "None";
             };
     }
@@ -148,8 +173,29 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         return "dd";
     }
 
-    private String quit(PyramidSolitaireModel<?> model) {
+    private String quit(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
+        this.transmitQuit(model, view);
         return "q";
+    }
+
+    private void transmitQuit(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
+        try {
+            outStream.append("Game Quit!\n");
+            outStream.append("State of the game when quit:\n");
+            this.transmitRender(view);
+            this.transmitScore(model);
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render quitting game state" + e);
+        }
+    }
+
+    private void transmitScore(PyramidSolitaireModel<?> model) {
+        int score = model.getScore();
+        try {
+            outStream.append(String.format("Score: %d\n", score));
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render score" + e);
+        }
     }
 }
 
