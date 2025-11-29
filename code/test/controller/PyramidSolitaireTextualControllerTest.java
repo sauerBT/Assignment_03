@@ -2,22 +2,23 @@ package controller;
 
 import cs3500.pyramidsolitaire.controller.PyramidSolitaireController;
 import cs3500.pyramidsolitaire.controller.PyramidSolitaireTextualController;
-import cs3500.pyramidsolitaire.model.hw02.Card;
-import cs3500.pyramidsolitaire.model.hw02.DeckOfCards;
-import cs3500.pyramidsolitaire.model.hw02.MockPyramidSolitaireModel;
-import cs3500.pyramidsolitaire.model.hw02.PyramidSolitaireModel;
+import cs3500.pyramidsolitaire.model.hw02.*;
+import cs3500.pyramidsolitaire.view.PyramidSolitaireTextualView;
+import cs3500.pyramidsolitaire.view.PyramidSolitaireView;
 import org.junit.*;
 
-import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 
 import static controller.Interaction.*;
+import static controller.Interaction.prints;
 import static org.junit.Assert.*;
 
 public class PyramidSolitaireTextualControllerTest {
     PyramidSolitaireModel<Card> PSM00;
+    PyramidSolitaireModel<Card> PSM01GameOverNoWin;
+    PyramidSolitaireModel<Card> PSM01GameOverWin;
     PyramidSolitaireController PSC00;
+    PyramidSolitaireView PSV00;
 
     StringBuilder inStreamMaker01;
     StringBuilder expectedOutput01;
@@ -31,9 +32,12 @@ public class PyramidSolitaireTextualControllerTest {
         expectedOutput01 = new StringBuilder();
         actualOutput01 = new StringBuilder();
         PSM00 = new MockPyramidSolitaireModel(actualOutput01);
+        PSM01GameOverNoWin = new MockPyramidSolitaireGameOverNoWinModel(actualOutput01);
+        PSM01GameOverWin = new MockPyramidSolitaireGameOverWinModel(actualOutput01);
+        PSV00 = new PyramidSolitaireTextualView(PSM00, actualOutput01);
     }
 
-    void testPlayGame(PyramidSolitaireModel<Card> model, Interaction... interactions) throws IOException {
+    void testPlayGame(PyramidSolitaireModel<Card> model, Interaction... interactions) {
         expectedOutput01.append(String.format("method = sg, deck = %s, shuffle = false, numRows = 7, numDraw = 3\n", new DeckOfCards(52).toList()));
         for (Interaction interaction : interactions) {
             interaction.apply(inStreamMaker01, expectedOutput01);
@@ -45,106 +49,218 @@ public class PyramidSolitaireTextualControllerTest {
     }
 
     @Test
-    public void testStartGame() throws IOException {
-        this.testPlayGame(PSM00, inputs("q\n"));
+    public void testStartGame() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testRemoveCardSingle() throws IOException {
+    public void testRemoveCardSingle() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm1 7 6\n"),
                 prints("method = rm1, row = 7, card = 6"),
-                inputs("q\n"));
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testRemoveCardDouble() throws IOException{
+    public void testGameOverNoWin() {
+        this.testPlayGame(PSM01GameOverNoWin,
+                transmitGameOverNoWin());
+    }
+
+    @Test
+    public void testGameOverWin() {
+        this.testPlayGame(PSM01GameOverWin,
+                transmitGameOverWin());
+    }
+
+    @Test
+    public void testRemoveCardDouble() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm2 7 7 7 1\n"),
                 prints("method = rm2, row1 = 7, card1 = 7, row2 = 7, card2 = 1"),
-                inputs("q\n"));
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testRemoveCardDraw() throws IOException{
+    public void testRemoveCardDraw() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rmwd 2 7 7\n"),
                 prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
-                inputs("q\n"));
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testDiscardDraw() throws IOException{
+    public void testDiscardDraw() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("dd 1\n"),
                 prints("method = dd, drawIndex = 1"),
-                inputs("q\n"));
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testMultiMethods01() throws IOException{
+    public void testMultiMethods01() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("dd 1\n"),
                 prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm1 7 7\n"),
                 prints("method = rm1, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm2 7 7 7 1\n"),
                 prints("method = rm2, row1 = 7, card1 = 7, row2 = 7, card2 = 1"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rmwd 2 7 7\n"),
                 prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
-                inputs("q\n")
-                );
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
     }
 
     @Test
-    public void testMultiRm1() throws IOException{
+    public void testMultiRm1() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm1 7 7\n"),
                 prints("method = rm1, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm1 1 7\n"),
                 prints("method = rm1, row = 1, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm1 3 4\n"),
                 prints("method = rm1, row = 3, card = 4"),
-                inputs("q\n")
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
         );
     }
 
     @Test
-    public void testMultiRm2() throws IOException{
+    public void testMultiRm2() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm2 7 7 1 3\n"),
                 prints("method = rm2, row1 = 7, card1 = 7, row2 = 1, card2 = 3"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm2 1 7 3 4\n"),
                 prints("method = rm2, row1 = 1, card1 = 7, row2 = 3, card2 = 4"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rm2 3 4 2 5\n"),
                 prints("method = rm2, row1 = 3, card1 = 4, row2 = 2, card2 = 5"),
-                inputs("q\n")
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
         );
     }
 
     @Test
-    public void testMultiRmwd() throws IOException{
+    public void testMultiRmwd() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rmwd 1 7 7\n"),
                 prints("method = rmwd, drawIndex = 1, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rmwd 2 1 7\n"),
                 prints("method = rmwd, drawIndex = 2, row = 1, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("rmwd 3 3 4\n"),
                 prints("method = rmwd, drawIndex = 3, row = 3, card = 4"),
-                inputs("q\n")
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
         );
     }
 
     @Test
-    public void testMultiDd() throws IOException{
+    public void testMultiDd() {
         this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("dd 2\n"),
                 prints("method = dd, drawIndex = 2"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("dd 1\n"),
                 prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
                 inputs("dd 3\n"),
                 prints("method = dd, drawIndex = 3"),
-                inputs("q\n")
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
         );
     }
 }
