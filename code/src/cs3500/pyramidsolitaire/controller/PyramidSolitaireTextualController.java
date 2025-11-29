@@ -71,50 +71,14 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
 
     private String executeCommand(PyramidSolitaireModel<?> model, PyramidSolitaireView view, List<Integer> inputs, String command) {
         return switch (command) {
-            case "rm1" -> this.runRemoveSingle(model, inputs);
-            case "rm2" -> this.runRemoveDouble(model, inputs);
-            case "rmwd" -> this.runRemoveUsingDraw(model, inputs);
-            case "dd" -> this.runDiscardDraw(model, inputs);
-            case "q" -> this.quit(model, view);
+            case "rm1" -> CommandHandler.runRemoveSingle(model, inputs);
+            case "rm2" -> CommandHandler.runRemoveDouble(model, inputs);
+            case "rmwd" -> CommandHandler.runRemoveUsingDraw(model, inputs);
+            case "dd" -> CommandHandler.runDiscardDraw(model, inputs);
+            case "q" -> CommandHandler.quit(model, view, this.outStream);
             default -> "None";
             };
     }
-
-    private String runRemoveSingle(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
-        int row = commandInputs.get(0);
-        int card = commandInputs.get(1);
-        model.remove(row, card);
-        return "rm1";
-    }
-
-    private String runRemoveDouble(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
-        int row1  = commandInputs.get(0);
-        int card1 = commandInputs.get(1);
-        int row2  = commandInputs.get(2);
-        int card2 = commandInputs.get(3);
-        model.remove(row1, card1, row2, card2);
-        return "rm2";
-    }
-
-    private String runRemoveUsingDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
-        int drawIndex = commandInputs.get(0);
-        int row       = commandInputs.get(1);
-        int card      = commandInputs.get(2);
-        model.removeUsingDraw(drawIndex, row, card);
-        return "rmwd";
-    }
-
-    private String runDiscardDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
-        int drawIndex = commandInputs.getFirst();
-        model.discardDraw(drawIndex);
-        return "dd";
-    }
-
-    private String quit(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
-        Transmissions.transmitQuit(model, view, this.outStream);
-        return "q";
-    }
-
 
 }
 
@@ -205,4 +169,42 @@ class Transmissions {
         model.startGame(deck, shuffle, numRows, numDraw);
     }
 
+}
+
+class CommandHandler {
+
+    public static String runRemoveSingle(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+        int row = commandInputs.get(0);
+        int card = commandInputs.get(1);
+        model.remove(row, card);
+        return "rm1";
+    }
+
+    public static String runRemoveDouble(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+        int row1  = commandInputs.get(0);
+        int card1 = commandInputs.get(1);
+        int row2  = commandInputs.get(2);
+        int card2 = commandInputs.get(3);
+        model.remove(row1, card1, row2, card2);
+        return "rm2";
+    }
+
+    public static String runRemoveUsingDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+        int drawIndex = commandInputs.get(0);
+        int row       = commandInputs.get(1);
+        int card      = commandInputs.get(2);
+        model.removeUsingDraw(drawIndex, row, card);
+        return "rmwd";
+    }
+
+    public static String runDiscardDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+        int drawIndex = commandInputs.getFirst();
+        model.discardDraw(drawIndex);
+        return "dd";
+    }
+
+    public static String quit(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Appendable outStream) {
+        Transmissions.transmitQuit(model, view, outStream);
+        return "q";
+    }
 }
