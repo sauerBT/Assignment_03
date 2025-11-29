@@ -39,9 +39,13 @@ public class MockPyramidSolitaireModel implements PyramidSolitaireModel<Card> {
 
     public boolean isGameOver() throws IllegalStateException { return false; }
 
-    public int getScore() throws IllegalStateException { return 0; }
+    public int getScore() throws IllegalStateException { return 101; }
 
     public Card getCardAt(int row, int card) throws IllegalStateException { return new Card(CardType.Seven, Suit.Heart); }
 
     public List<Card> getDrawCards() throws IllegalStateException { return new ArrayList<>(); }
+
+    public String toString() {
+        return "Model toString method called!\n";
+    }
 }
