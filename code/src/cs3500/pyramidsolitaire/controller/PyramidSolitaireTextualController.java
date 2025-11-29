@@ -32,7 +32,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     public <K> void playGame(PyramidSolitaireModel<K> model, List<K> deck, boolean shuffle, int numRows, int numDraw) {
         if (model != null) {
             PyramidSolitaireView view = createView(model);
-            transmitStartGame(model, deck, shuffle, numRows, numDraw);
+            Transmissions.transmitStartGame(model, deck, shuffle, numRows, numDraw);
             scanForInputRequests(model, view);
         } else {
             throw new IllegalArgumentException("Provided model cannot be null!");
@@ -40,35 +40,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     };
 
     private <K> PyramidSolitaireView createView(PyramidSolitaireModel<K> model) {
-        return new PyramidSolitaireTextualView(model, outStream);
-    }
-
-    /**
-     * Transmit render request to the view.
-     *
-     * @param view The given view for the application.
-     * @throws IllegalStateException When view cannot complete rendering due to an IOException.
-     */
-    private void transmitRender(PyramidSolitaireView view) {
-        try {
-            view.render();
-        } catch (IOException e) {
-            throw new IllegalStateException("Unable to render view" + e);
-        }
-    }
-
-    /**
-     * Send request to given model to start the game with the given conditions.
-     * MUTATION: Sends a message to the game model to run the startGame method.
-     *
-     * @param deck Deck of elements to be used for the game.
-     * @param shuffle Determines if the deck should be shuffled prior to start of the game.
-     * @param numRows Initial number of rows in the game.
-     * @param numDraw Number of draw cards from the stock during the game.
-     * @param <K> Type of elements that make up the game pyramid.
-     */
-    private <K> void transmitStartGame(PyramidSolitaireModel<K> model, List<K> deck, boolean shuffle, int numRows, int numDraw) {
-        model.startGame(deck, shuffle, numRows, numDraw);
+        return new PyramidSolitaireTextualView(model, this.outStream);
     }
 
     /**
@@ -81,9 +53,9 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     }
 
     private void scanForInputRequestsHelper(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Scanner scan) {
-        this.transmitRender(view);
+        Transmissions.transmitRender(view);
         if (scan.hasNextLine() && !model.isGameOver()) {
-            this.transmitScore(model);
+            Transmissions.transmitScore(model, this.outStream);
             String currentCommandLine = scan.nextLine(); // MUTATION: Extract next command line
             String command = CommandParser.parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
             List<Integer> inputs = CommandParser.parseInputs(currentCommandLine);
@@ -92,7 +64,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
                 scanForInputRequestsHelper(model, view, scan);
             }
         } else if (!model.isGameOver()) {
-            this.transmitScore(model);
+            Transmissions.transmitScore(model, this.outStream);
             scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
         }
     }
@@ -139,29 +111,11 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     }
 
     private String quit(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
-        this.transmitQuit(model, view);
+        Transmissions.transmitQuit(model, view, this.outStream);
         return "q";
     }
 
-    private void transmitQuit(PyramidSolitaireModel<?> model, PyramidSolitaireView view) {
-        try {
-            outStream.append("Game Quit!\n");
-            outStream.append("State of the game when quit:\n");
-            this.transmitRender(view);
-            this.transmitScore(model);
-        } catch (IOException e) {
-            throw new IllegalStateException("Unable to render quitting game state" + e);
-        }
-    }
 
-    private void transmitScore(PyramidSolitaireModel<?> model) {
-        int score = model.getScore();
-        try {
-            outStream.append(String.format("Score: %d\n", score));
-        } catch (IOException e) {
-            throw new IllegalStateException("Unable to render score" + e);
-        }
-    }
 }
 
 class CommandParser {
@@ -201,4 +155,54 @@ class CommandParser {
     }
 }
 
+class Transmissions {
 
+    public static void transmitQuit(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Appendable outStream) {
+        try {
+            outStream.append("Game Quit!\n");
+            outStream.append("State of the game when quit:\n");
+            Transmissions.transmitRender(view);
+            Transmissions.transmitScore(model, outStream);
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render quitting game state" + e);
+        }
+    }
+
+    public static void transmitScore(PyramidSolitaireModel<?> model, Appendable outStream) {
+        int score = model.getScore();
+        try {
+            outStream.append(String.format("Score: %d\n", score));
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render score" + e);
+        }
+    }
+
+    /**
+     * Transmit render request to the view.
+     *
+     * @param view The given view for the application.
+     * @throws IllegalStateException When view cannot complete rendering due to an IOException.
+     */
+    public static void transmitRender(PyramidSolitaireView view) {
+        try {
+            view.render();
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to render view" + e);
+        }
+    }
+
+    /**
+     * Send request to given model to start the game with the given conditions.
+     * MUTATION: Sends a message to the game model to run the startGame method.
+     *
+     * @param deck Deck of elements to be used for the game.
+     * @param shuffle Determines if the deck should be shuffled prior to start of the game.
+     * @param numRows Initial number of rows in the game.
+     * @param numDraw Number of draw cards from the stock during the game.
+     * @param <K> Type of elements that make up the game pyramid.
+     */
+    public static <K> void transmitStartGame(PyramidSolitaireModel<K> model, List<K> deck, boolean shuffle, int numRows, int numDraw) {
+        model.startGame(deck, shuffle, numRows, numDraw);
+    }
+
+}
