@@ -263,4 +263,152 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameScore()
         );
     }
+
+    // TODO
+    @Test
+    public void testSingleRetry01() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2 7\n"), // TODO Here
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    // TODO
+    @Test
+    public void testSingleRetry02() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2 7 asdf\n"), // TODO Here
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    // TODO
+    @Test
+    public void testSingleRetryWithQuit() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2 7 7\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    // TODO
+    @Test
+    public void testSingleRetryWithInvalidMove() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2 7 7\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    // TODO
+    @Test
+    public void testMultiRetry() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 2\n"),
+                prints("method = dd, drawIndex = 2"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 1\n"),
+                prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 3\n"),
+                prints("method = dd, drawIndex = 3"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
+        );
+    }
+
+    // TODO
+    @Test
+    public void testMultiRetryWithQuit() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 2\n"),
+                prints("method = dd, drawIndex = 2"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 1\n"),
+                prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 3\n"),
+                prints("method = dd, drawIndex = 3"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
+        );
+    }
+
+    // TODO
+    @Test
+    public void testMultiRetryWithInvalidMove() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 2\n"),
+                prints("method = dd, drawIndex = 2"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 1\n"),
+                prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 3\n"),
+                prints("method = dd, drawIndex = 3"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
+        );
+    }
+
+
 }
