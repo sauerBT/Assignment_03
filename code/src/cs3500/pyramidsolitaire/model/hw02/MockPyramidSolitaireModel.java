@@ -5,6 +5,9 @@ import java.util.List;
 
 public class MockPyramidSolitaireModel implements PyramidSolitaireModel<Card> {
     StringBuilder log;
+    private int rowNum;
+    private int drawNum;
+
     public MockPyramidSolitaireModel(StringBuilder log) {
         this.log = log;
     }
@@ -12,7 +15,9 @@ public class MockPyramidSolitaireModel implements PyramidSolitaireModel<Card> {
     public List<Card> getDeck() { return new ArrayList<>(); }
 
     public void startGame(List<Card> deck, boolean shuffle, int numRows, int numDraw) {
-        log.append(String.format("method = sg, deck = %s, shuffle = %b, numRows = %d, numDraw = %d\n", deck.toString(), shuffle, numRows, numDraw));
+        this.log.append(String.format("method = sg, deck = %s, shuffle = %b, numRows = %d, numDraw = %d\n", deck.toString(), shuffle, numRows, numDraw));
+        this.rowNum = numRows;
+        this.drawNum = numDraw;
     }
 
     public void remove(int row1, int card1, int row2, int card2) throws IllegalStateException {
@@ -24,11 +29,19 @@ public class MockPyramidSolitaireModel implements PyramidSolitaireModel<Card> {
     }
 
     public void removeUsingDraw(int drawIndex, int row, int card) throws IllegalStateException {
-        log.append(String.format("method = rmwd, drawIndex = %d, row = %d, card = %d\n", drawIndex, row, card));
+        if (this.rowNum < card || (drawIndex < 0)) {
+            throw new IllegalArgumentException("Given draw index is invalid.");
+        } else {
+            log.append(String.format("method = rmwd, drawIndex = %d, row = %d, card = %d\n", drawIndex, row, card));
+        }
     }
 
     public void discardDraw(int drawIndex) throws IllegalStateException {
-        log.append(String.format("method = dd, drawIndex = %d\n", drawIndex));
+        if (this.drawNum < drawIndex || (drawIndex < 0)) {
+            throw new IllegalArgumentException("Given draw index is invalid.");
+        } else {
+            log.append(String.format("method = dd, drawIndex = %d\n", drawIndex));
+        }
     }
 
     public int getNumRows() { return 0; }
