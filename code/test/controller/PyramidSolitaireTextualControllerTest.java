@@ -264,13 +264,14 @@ public class PyramidSolitaireTextualControllerTest {
         );
     }
 
-    // TODO
     @Test
     public void testSingleRetry01() {
         this.testPlayGame(PSM00,
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("rmwd 2 7\n"), // TODO Here
+                inputs("rmwd 2 7\n"),
+                prints("Entry not complete! Please add the postion of the card to remove!"),
+                inputs("7\n"),
                 prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
                 transmitGameState(),
                 transmitGameScore(),
@@ -281,13 +282,14 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameScore());
     }
 
-    // TODO
     @Test
     public void testSingleRetry02() {
         this.testPlayGame(PSM00,
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("rmwd 2 7 asdf\n"), // TODO Here
+                inputs("rmwd 2 7 asdf\n"),
+                prints("Entry not complete! Please add the position of the card to remove!"),
+                inputs("7\n"),
                 prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
                 transmitGameState(),
                 transmitGameScore(),
@@ -298,16 +300,93 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameScore());
     }
 
-    // TODO
+    @Test
+    public void testSingleRetry03() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2\n"),
+                prints("Entry not complete! Please add the row of the card to remove!"),
+                inputs("7 7\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    @Test
+    public void testSingleRetry04() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2\n"),
+                prints("Entry not complete! Please add the row of the card to remove!"),
+                inputs("7\n"),
+                prints("Entry not complete! Please add the position of the card to remove!"),
+                inputs("6\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 6"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    @Test
+    public void testSingleRetry05() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd 2 \n"),
+                prints("Entry not complete! Please add the row of the card to remove!"),
+                inputs("7\n"),
+                prints("Entry not complete! Please add the position of the card to remove!"),
+                inputs("6\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 6"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
+    @Test
+    public void testSingleRetry06() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("rmwd\n"),
+                prints("Entry not complete! Please add the draw index of the card to discard!"),
+                inputs("2\n"),
+                prints("Entry not complete! Please add the row of the card to remove!"),
+                inputs("7\n"),
+                prints("Entry not complete! Please add the position of the card to remove!"),
+                inputs("6\n"),
+                prints("method = rmwd, drawIndex = 2, row = 7, card = 6"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore());
+    }
+
     @Test
     public void testSingleRetryWithQuit() {
         this.testPlayGame(PSM00,
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("rmwd 2 7 7\n"),
-                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
-                transmitGameState(),
-                transmitGameScore(),
+                inputs("rmwd 2 7\n"),
+                prints("Entry not complete! Please add the position of the card to remove!"),
                 inputs("Q\n"),
                 prints("Game Quit!"),
                 prints("State of the game when quit:"),
@@ -315,14 +394,13 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameScore());
     }
 
-    // TODO
     @Test
     public void testSingleRetryWithInvalidMove() {
         this.testPlayGame(PSM00,
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("rmwd 2 7 7\n"),
-                prints("method = rmwd, drawIndex = 2, row = 7, card = 7"),
+                inputs("rmwd 2 7 10\n"),
+                prints("Invalid move. Play again. No card at the given position"),
                 transmitGameState(),
                 transmitGameScore(),
                 inputs("Q\n"),
@@ -332,9 +410,35 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameScore());
     }
 
-    // TODO
     @Test
-    public void testMultiRetry() {
+    public void testMultiRetry01() {
+        this.testPlayGame(PSM00,
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd\n"),
+                prints("Entry not complete! Please add the draw index of the card to discard!"),
+                inputs("2\n"),
+                prints("method = dd, drawIndex = 2"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 1\n"),
+                prints("method = dd, drawIndex = 1"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("dd 3\n"),
+                prints("method = dd, drawIndex = 3"),
+                transmitGameState(),
+                transmitGameScore(),
+                inputs("Q\n"),
+                prints("Game Quit!"),
+                prints("State of the game when quit:"),
+                transmitGameState(),
+                transmitGameScore()
+        );
+    }
+
+    @Test
+    public void testMultiRetry02() {
         this.testPlayGame(PSM00,
                 transmitGameState(),
                 transmitGameScore(),
@@ -346,7 +450,9 @@ public class PyramidSolitaireTextualControllerTest {
                 prints("method = dd, drawIndex = 1"),
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("dd 3\n"),
+                inputs("dd\n"),
+                prints("Entry not complete! Please add the draw index of the card to discard!"),
+                inputs("3\n"),
                 prints("method = dd, drawIndex = 3"),
                 transmitGameState(),
                 transmitGameScore(),
@@ -372,10 +478,8 @@ public class PyramidSolitaireTextualControllerTest {
                 prints("method = dd, drawIndex = 1"),
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("dd 3\n"),
-                prints("method = dd, drawIndex = 3"),
-                transmitGameState(),
-                transmitGameScore(),
+                inputs("dd \n"),
+                prints("Entry not complete! Please add the draw index of the card to discard!"),
                 inputs("Q\n"),
                 prints("Game Quit!"),
                 prints("State of the game when quit:"),
@@ -384,7 +488,6 @@ public class PyramidSolitaireTextualControllerTest {
         );
     }
 
-    // TODO
     @Test
     public void testMultiRetryWithInvalidMove() {
         this.testPlayGame(PSM00,
@@ -398,8 +501,8 @@ public class PyramidSolitaireTextualControllerTest {
                 prints("method = dd, drawIndex = 1"),
                 transmitGameState(),
                 transmitGameScore(),
-                inputs("dd 3\n"),
-                prints("method = dd, drawIndex = 3"),
+                inputs("dd 5\n"),
+                prints("Invalid move. Play again. Given draw index is invalid."),
                 transmitGameState(),
                 transmitGameScore(),
                 inputs("Q\n"),
