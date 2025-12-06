@@ -53,9 +53,11 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
     }
 
     private void scanForInputRequestsHelper(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Scanner scan) {
+        // 1. Transmit a render request to the View
         Transmissions.transmitRender(view);
         if (scan.hasNextLine() && !model.isGameOver()) {
-            Transmissions.transmitScore(model, this.outStream);
+            // 1. Transmit a getScore to the model and a render request to the View
+            Transmissions.transmitScore(view, model, this.outStream);
             String currentCommandLine = scan.nextLine(); // MUTATION: Extract next command line
             String command = CommandParser.parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
             List<Integer> inputs = CommandParser.parseInputs(currentCommandLine);
@@ -64,7 +66,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
                 scanForInputRequestsHelper(model, view, scan);
             }
         } else if (!model.isGameOver()) {
-            Transmissions.transmitScore(model, this.outStream);
+            Transmissions.transmitScore(view, model, this.outStream);
             scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
         }
     }
@@ -123,19 +125,15 @@ class Transmissions {
 
     public static void transmitQuit(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Appendable outStream) {
         try {
-            outStream.append("Game Quit!\n");
-            outStream.append("State of the game when quit:\n");
-            Transmissions.transmitRender(view);
-            Transmissions.transmitScore(model, outStream);
+            view.renderQuit();
         } catch (IOException e) {
             throw new IllegalStateException("Unable to render quitting game state" + e);
         }
     }
 
-    public static void transmitScore(PyramidSolitaireModel<?> model, Appendable outStream) {
-        int score = model.getScore();
+    public static void transmitScore(PyramidSolitaireView view, PyramidSolitaireModel<?> model, Appendable outStream) {
         try {
-            outStream.append(String.format("Score: %d\n", score));
+            view.renderScore();
         } catch (IOException e) {
             throw new IllegalStateException("Unable to render score" + e);
         }

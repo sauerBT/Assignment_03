@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class PyramidSolitaireTextualView implements PyramidSolitaireView{
     private final PyramidSolitaireModel<?> model;
-    private Appendable outStream;
+    private final Appendable outStream;
 
     // TODO
     public PyramidSolitaireTextualView(PyramidSolitaireModel<?> model, Appendable outStream) {
@@ -16,6 +16,19 @@ public class PyramidSolitaireTextualView implements PyramidSolitaireView{
         } else {
             throw new IllegalArgumentException("Provided output stream cannot be null!");
         }
+    }
+
+    @Override
+    public void renderScore() throws IOException {
+        this.outStream.append(String.format("Score: %d\n", model.getScore()));
+    }
+
+    @Override
+    public void renderQuit() throws IOException {
+        this.outStream.append("Game Quit!\n");
+        this.outStream.append("State of the game when quit:\n");
+        this.render();
+        this.renderScore();
     }
 
     @Override

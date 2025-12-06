@@ -13,4 +13,8 @@ public interface PyramidSolitaireView {
    * @throws IOException if the rendering fails for some reason
    */
   void render() throws IOException;
+
+  void renderScore() throws IOException;
+
+  void renderQuit() throws IOException;
 }
