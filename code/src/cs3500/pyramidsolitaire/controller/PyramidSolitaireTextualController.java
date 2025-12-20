@@ -27,6 +27,9 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         }
     }
 
+    public Readable inStream() { return this.inStream; }
+    public Appendable outStream() { return this.outStream; }
+
     // TODO
     @Override
     public <K> void playGame(PyramidSolitaireModel<K> model, List<K> deck, boolean shuffle, int numRows, int numDraw) {
@@ -56,47 +59,64 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         // 1. Transmit a render request to the View
         Transmissions.transmitRender(view);
         if (scan.hasNextLine() && !model.isGameOver()) {
-            // 1. Transmit a getScore to the model and a render request to the View
-            Transmissions.transmitScore(view, model, this.outStream);
+            // 2. Transmit a getScore to the model and a render request to the View
+            Transmissions.transmitScore(view);
             String currentCommandLine = scan.nextLine(); // MUTATION: Extract next command line
-            String command = CommandParser.parseCommand(currentCommandLine).toLowerCase(); // TODO -- this could be its own data type (enum)
-            List<Integer> inputs = CommandParser.parseInputs(currentCommandLine);
-            String executedCommand = this.executeCommand(model, view, inputs, command);
+            RequestParser request =
+                    RequestParser.parseCommand(currentCommandLine); // 3. Extract command (or throw error)
+            String executedCommand = CommandHandler.executeCommand(model, view, request, this);
             if (!executedCommand.equals("q")) {
                 scanForInputRequestsHelper(model, view, scan);
             }
         } else if (!model.isGameOver()) {
-            Transmissions.transmitScore(view, model, this.outStream);
+            Transmissions.transmitScore(view);
             scanForInputRequestsHelper(model, view, new Scanner(this.inStream));
         }
     }
 
-    private String executeCommand(PyramidSolitaireModel<?> model, PyramidSolitaireView view, List<Integer> inputs, String command) {
-        return switch (command) {
-            case "rm1" -> CommandHandler.runRemoveSingle(model, inputs);
-            case "rm2" -> CommandHandler.runRemoveDouble(model, inputs);
-            case "rmwd" -> CommandHandler.runRemoveUsingDraw(model, inputs);
-            case "dd" -> CommandHandler.runDiscardDraw(model, inputs);
-            case "q" -> CommandHandler.quit(model, view, this.outStream);
-            default -> "None";
-            };
-    }
+    
 
 }
 
-class CommandParser {
+class RequestParser {
+    private final String command;
+    private final List<Integer> inputs;
+    private final Scanner commandLine;
+
+    private RequestParser(String command, Scanner commandLine) {
+        this.command = command;
+        this.commandLine = commandLine;
+        this.inputs = new ArrayList<>();
+    }
+
+    private RequestParser(String command, List<Integer> inputs, Scanner commandLine) {
+        if (CommandHandler.isValidCommand(command)) {
+            this.command = command;
+            this.inputs = inputs;
+            this.commandLine = commandLine;
+        } else {
+            throw new IllegalArgumentException(String.format("Input does not contain a valid command. Inputs: %s", command));
+        }
+    }
+
+    String command() { return this.command; }
+
+    List<Integer> inputs() { return this.inputs; }
+
+    Scanner commandLine() { return this.commandLine; }
+
     /**
      * Produce the user command for the given command line.
      *
      * @param commandLine The given command line
      * @return The command name.
      */
-    public static String parseCommand(String commandLine) {
+    public static RequestParser parseCommand(String commandLine) {
         Scanner commandLineScan = new Scanner(commandLine);
         if (commandLineScan.hasNext()) {
-            return commandLineScan.next();
+            return new RequestParser(commandLineScan.next(), commandLineScan);
         } else {
-            return "None";
+            throw new IllegalStateException(String.format("Invalid input. Input: %s", commandLineScan));
         }
     }
 
@@ -106,24 +126,29 @@ class CommandParser {
      * @param commandLine The given command line.
      * @return The command inputs as an integer array.
      */
-    public static List<Integer> parseInputs(String commandLine) {
-        Scanner commandLineScan = new Scanner(commandLine);
-        commandLineScan.next();
-        return parseInputsHelper(commandLineScan, new ArrayList<>());
+    public RequestParser parseInputs(Scanner commandLine, Integer numberOfArgs, PyramidSolitaireView view, PyramidSolitaireController controller) {
+        return parseInputsHelper(commandLine, new ArrayList<>(), 0, numberOfArgs, view, controller);
     }
-    private static List<Integer> parseInputsHelper(Scanner commandLineScan, List<Integer> inputAcc) {
+
+    // TODO
+    private RequestParser parseInputsHelper(Scanner commandLineScan, List<Integer> inputAcc, Integer inputCounter, Integer numberOfArgs, PyramidSolitaireView view, PyramidSolitaireTextualController controller) {
         if (!commandLineScan.hasNextInt()) {
-            return inputAcc;
+            if (inputCounter < numberOfArgs) {
+                Transmissions.askForAdditionalInputs(view);
+                return parseInputsHelper(controller.inStream(), Util.ListUtil.clone(inputAcc), inputCounter, numberOfArgs, view, controller);
+            } else {
+                return new RequestParser(this.command, inputAcc, commandLineScan);
+            }
         } else {
             inputAcc.add(commandLineScan.nextInt());
-            return parseInputsHelper(commandLineScan, Util.ListUtil.clone(inputAcc));
+            return parseInputsHelper(commandLineScan, Util.ListUtil.clone(inputAcc), inputCounter + 1, numberOfArgs, view, controller);
         }
     }
 }
 
 class Transmissions {
 
-    public static void transmitQuit(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Appendable outStream) {
+    public static void transmitQuit(PyramidSolitaireView view) {
         try {
             view.renderQuit();
         } catch (IOException e) {
@@ -131,7 +156,7 @@ class Transmissions {
         }
     }
 
-    public static void transmitScore(PyramidSolitaireView view, PyramidSolitaireModel<?> model, Appendable outStream) {
+    public static void transmitScore(PyramidSolitaireView view) {
         try {
             view.renderScore();
         } catch (IOException e) {
@@ -153,6 +178,7 @@ class Transmissions {
         }
     }
 
+    // TODO -- should this be moved to a CommandHandler?
     /**
      * Send request to given model to start the game with the given conditions.
      * MUTATION: Sends a message to the game model to run the startGame method.
@@ -167,18 +193,44 @@ class Transmissions {
         model.startGame(deck, shuffle, numRows, numDraw);
     }
 
+    // TODO
+    public static void askForAdditionalInputs(PyramidSolitaireView view) {}
 }
 
 class CommandHandler {
 
-    public static String runRemoveSingle(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+    static String executeCommand(PyramidSolitaireModel<?> model, PyramidSolitaireView view, RequestParser request) {
+        return switch (request.command().toLowerCase()) {
+            case "rm1" -> CommandHandler.runRemoveSingle(model, view, request);
+            case "rm2" -> CommandHandler.runRemoveDouble(model, view, request);
+            case "rmwd" -> CommandHandler.runRemoveUsingDraw(model, view, request);
+            case "dd" -> CommandHandler.runDiscardDraw(model, view, request);
+            case "q" -> CommandHandler.quit(view);
+            default -> "None";
+        };
+    }
+
+    static boolean isValidCommand(String command) {
+        return switch (command) {
+            case "rm1" -> true;
+            case "rm2" -> true;
+            case "rmwd" -> true;
+            case "dd" -> true;
+            case "q" -> true;
+            default -> false;
+        };
+    }
+
+    public static String runRemoveSingle(PyramidSolitaireModel<?> model, PyramidSolitaireView view, RequestParser request) {
+        List<Integer> commandInputs = request.parseInputs(request.commandLine(), 2, view).inputs();
         int row = commandInputs.get(0);
         int card = commandInputs.get(1);
         model.remove(row, card);
         return "rm1";
     }
 
-    public static String runRemoveDouble(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+    public static String runRemoveDouble(PyramidSolitaireModel<?> model, PyramidSolitaireView view, RequestParser request) {
+        List<Integer> commandInputs = request.parseInputs(request.commandLine(), 4, view).inputs();
         int row1  = commandInputs.get(0);
         int card1 = commandInputs.get(1);
         int row2  = commandInputs.get(2);
@@ -187,7 +239,8 @@ class CommandHandler {
         return "rm2";
     }
 
-    public static String runRemoveUsingDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+    public static String runRemoveUsingDraw(PyramidSolitaireModel<?> model, PyramidSolitaireView view, RequestParser request) {
+        List<Integer> commandInputs = request.parseInputs(request.commandLine(), 3, view).inputs();
         int drawIndex = commandInputs.get(0);
         int row       = commandInputs.get(1);
         int card      = commandInputs.get(2);
@@ -195,14 +248,15 @@ class CommandHandler {
         return "rmwd";
     }
 
-    public static String runDiscardDraw(PyramidSolitaireModel<?> model, List<Integer> commandInputs) {
+    public static String runDiscardDraw(PyramidSolitaireModel<?> model, PyramidSolitaireView view, RequestParser request) {
+        List<Integer> commandInputs = request.parseInputs(request.commandLine(), 1, view).inputs();
         int drawIndex = commandInputs.getFirst();
         model.discardDraw(drawIndex);
         return "dd";
     }
 
-    public static String quit(PyramidSolitaireModel<?> model, PyramidSolitaireView view, Appendable outStream) {
-        Transmissions.transmitQuit(model, view, outStream);
+    public static String quit(PyramidSolitaireView view) {
+        Transmissions.transmitQuit(view);
         return "q";
     }
 }
