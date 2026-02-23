@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.function.BiFunction;
 
 /**
  * The controller for playing a game of Pyramid Solitaire.
@@ -388,11 +389,11 @@ class CommandExecutor {
 
     CommandExecutor executeCommand() {
         return switch (this.command.name()) {
-            case CommandName.rm1 -> this.runRemoveSingle();
-            case CommandName.rm2 -> this.runRemoveDouble();
-            case CommandName.rmwd -> this.runRemoveUsingDraw();
-            case CommandName.dd -> this.runDiscardDraw();
-            case CommandName.q -> this.quit();
+            case CommandName.rm1 -> this.runCommand(new RunRemoveSingle());
+            case CommandName.rm2 -> this.runCommand(new RunRemoveDouble());
+            case CommandName.rmwd -> this.runCommand(new RunRemoveUsingDraw());
+            case CommandName.dd -> this.runCommand(new RunDiscardDraw());
+            case CommandName.q -> this.runCommand(new RunQuit());
         };
     }
 
@@ -410,67 +411,17 @@ class CommandExecutor {
 
     boolean isQuitCommand() { return (this.command.name() == CommandName.q); }
 
-    CommandExecutor runRemoveSingle() throws IllegalArgumentException {
-        if (!this.isComplete()) {
-            throw new IllegalArgumentException("Invalid number of inputs for the removeSingle method!");
-        } else {
-            try {
-                int row = this.command.inputs().get(0);
-                int card = this.command.inputs().get(1);
-                this.model.remove(row, card);
-                return this;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Error running remove single command");
-                return this;
-            }
-        }
-    }
-
-    CommandExecutor runRemoveDouble() throws IllegalArgumentException {
-        if (!this.isComplete()) {
-            throw new IllegalArgumentException("Invalid number of inputs for the removeSingle method!");
-        } else {
-            int row1 = this.command.inputs().get(0);
-            int card1 = this.command.inputs().get(1);
-            int row2 = this.command.inputs().get(2);
-            int card2 = this.command.inputs().get(3);
-            this.model.remove(row1, card1, row2, card2);
-            return this;
-        }
-    }
-
-    CommandExecutor runRemoveUsingDraw() throws IllegalArgumentException {
+    // TODO convert output to optional
+    CommandExecutor runCommand(BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> func) throws IllegalArgumentException {
             if (!this.isComplete()) {
-                throw new IllegalArgumentException("Invalid number of inputs for the removeSingle method!");
+                throw new IllegalArgumentException("Invalid number of inputs!");
             } else {
                 try {
-                    int drawIndex = this.command.inputs().get(0);
-                    int row = this.command.inputs().get(1);
-                    int card = this.command.inputs().get(2);
-                    this.model.removeUsingDraw(drawIndex, row, card);
-                    return this;
+                    return func.apply(model, command);
                 } catch (IllegalArgumentException e) {
-                System.out.println("Invalid move. Play again. " + e);
-                return this;
+                    System.out.println("Invalid move. Play again. " + e);
+                    return this;
                 }
-            }
-    }
-
-    CommandExecutor runDiscardDraw() throws IllegalArgumentException {
-            if (!this.isComplete()) {
-                throw new IllegalArgumentException("Invalid number of inputs for the removeSingle method!");
-            } else {
-                int drawIndex = this.command.inputs().getFirst();
-                this.model.discardDraw(drawIndex);
-                return this;
-            }
-    }
-
-    CommandExecutor quit() throws IllegalArgumentException {
-            if (!this.isComplete()) {
-                throw new IllegalArgumentException("Invalid number of inputs for the removeSingle method!");
-            } else {
-                return this;
             }
     }
 }
@@ -616,5 +567,50 @@ class CommandExtractionPackage<U> {
 
     public static <U> CommandExtractionPackage<U> of(U commandExecutor, Request request) {
         return new CommandExtractionPackage<>(commandExecutor, request);
+    }
+}
+
+
+class RunRemoveSingle implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
+    public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
+        int row = command.inputs().get(0);
+        int card = command.inputs().get(1);
+        model.remove(row, card);
+        return CommandExecutor.of(model, Command.of(command.name(), List.of()));
+    }
+}
+
+class RunRemoveDouble implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
+    public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
+        int row1 = command.inputs().get(0);
+        int card1 = command.inputs().get(1);
+        int row2 = command.inputs().get(2);
+        int card2 = command.inputs().get(3);
+        model.remove(row1, card1, row2, card2);
+        return CommandExecutor.of(model, Command.of(command.name(), List.of()));
+    }
+}
+
+class RunRemoveUsingDraw implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
+    public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
+        int drawIndex = command.inputs().get(0);
+        int row = command.inputs().get(1);
+        int card = command.inputs().get(2);
+        model.removeUsingDraw(drawIndex, row, card);
+        return CommandExecutor.of(model, Command.of(command.name(), List.of()));
+    }
+}
+
+class RunDiscardDraw implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
+    public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
+        int drawIndex = command.inputs().getFirst();
+        model.discardDraw(drawIndex);
+        return CommandExecutor.of(model, Command.of(command.name(), List.of()));
+    }
+}
+
+class RunQuit implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
+    public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
+        return CommandExecutor.of(model, Command.of(command.name(), List.of()));
     }
 }
