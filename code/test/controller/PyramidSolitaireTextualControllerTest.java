@@ -400,9 +400,7 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameState(),
                 transmitGameScore(),
                 inputs("rmwd 2 7 10\n"),
-                prints("Invalid move. Play again. No card at the given position"),
-                transmitGameState(),
-                transmitGameScore(),
+                prints("Invalid move. Play again. java.lang.IllegalArgumentException: Given draw index is invalid."),
                 inputs("Q\n"),
                 prints("Game Quit!"),
                 prints("State of the game when quit:"),
@@ -464,7 +462,6 @@ public class PyramidSolitaireTextualControllerTest {
         );
     }
 
-    // TODO
     @Test
     public void testMultiRetryWithQuit() {
         this.testPlayGame(PSM00,
@@ -502,9 +499,7 @@ public class PyramidSolitaireTextualControllerTest {
                 transmitGameState(),
                 transmitGameScore(),
                 inputs("dd 5\n"),
-                prints("Invalid move. Play again. Given draw index is invalid."),
-                transmitGameState(),
-                transmitGameScore(),
+                prints("Invalid move. Play again. java.lang.IllegalArgumentException: Given draw index is invalid."),
                 inputs("Q\n"),
                 prints("Game Quit!"),
                 prints("State of the game when quit:"),
@@ -513,5 +508,6 @@ public class PyramidSolitaireTextualControllerTest {
         );
     }
 
+    // TODO: Add test for invalid command retry with new inputs!!!
 
 }
