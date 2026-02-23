@@ -83,7 +83,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         Transmissions.transmitScore(view);
         // 2. Generate a CommandExecutor from the given request, validate the command name
         CommandExecutor executor =
-                execute(inputExtractionLoop(commandExtractionLoop(model), model, view));
+                execute(inputExtractionLoop(commandExtractionLoop(model), model, view), view, model);
         System.out.println("Controller| executor = " + executor.toString());
 
         // 3. Check if returned command is a quit command, end game if it is
@@ -176,8 +176,14 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
      * @param executor The given "Valid" and "Complete" CommandExecutor.
      * @return The successfully executed CommandExecutor.
      */
-    private CommandExecutor execute(CommandExecutor executor) {
-        return executor.executeCommand();
+    private CommandExecutor execute(CommandExecutor executor, PyramidSolitaireView view, PyramidSolitaireModel<?> model) {
+        CommandExecutionPackage<Optional<CommandExecutor>> commandExecutionPackage = executor.executeCommand();
+        return commandExecutionPackage.data.orElseGet(() -> {
+            Transmissions.informInvalidCommand(view, commandExecutionPackage.error);
+            CommandExecutor commandExecutor = CommandExecutor.of(model, Command.of(commandExecutionPackage.commandName(), List.of()));
+            CommandExtractionPackage<CommandExecutor> extractionPackage = CommandExtractionPackage.of(commandExecutor, requestExtractionLoop());
+            return execute(this.inputExtractionLoop(extractionPackage,  model, view), view, model);
+        });
     }
 
 }
@@ -387,7 +393,7 @@ class CommandExecutor {
         }
     }
 
-    CommandExecutor executeCommand() {
+    CommandExecutionPackage<Optional<CommandExecutor>> executeCommand() {
         return switch (this.command.name()) {
             case CommandName.rm1 -> this.runCommand(new RunRemoveSingle());
             case CommandName.rm2 -> this.runCommand(new RunRemoveDouble());
@@ -412,15 +418,15 @@ class CommandExecutor {
     boolean isQuitCommand() { return (this.command.name() == CommandName.q); }
 
     // TODO convert output to optional
-    CommandExecutor runCommand(BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> func) throws IllegalArgumentException {
+    CommandExecutionPackage<Optional<CommandExecutor>> runCommand(BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> func) throws IllegalArgumentException {
             if (!this.isComplete()) {
                 throw new IllegalArgumentException("Invalid number of inputs!");
             } else {
                 try {
-                    return func.apply(model, command);
+                    return CommandExecutionPackage.of(Optional.of(func.apply(model, command)), command.name(), "");
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid move. Play again. " + e);
-                    return this;
+                    System.out.println("Invalid move. Play again. " + e.toString());
+                    return CommandExecutionPackage.of(Optional.empty(), command.name(), e.toString());
                 }
             }
     }
@@ -552,6 +558,15 @@ class Transmissions {
             throw new IllegalStateException("Unable to ask for additional inputs" + e);
         }
     }
+
+    // TODO
+    public static void informInvalidCommand(PyramidSolitaireView view, String err) {
+        try {
+            view.informInvalidCommand(err);
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to ask for additional inputs" + e);
+        }
+    }
 }
 
 class CommandExtractionPackage<U> {
@@ -570,7 +585,24 @@ class CommandExtractionPackage<U> {
     }
 }
 
+class CommandExecutionPackage<U> {
+    U data;
+    CommandName commandName;
+    String error;
+    CommandExecutionPackage(U data, CommandName commandName, String error) {
+        this.data = data;
+        this.commandName = commandName;
+        this.error = error;
+    }
 
+    public U data() { return data; }
+    public CommandName commandName() { return commandName; }
+    public String error() { return error; }
+
+    public static <U> CommandExecutionPackage<U> of(U commandExecutor, CommandName commandName, String error) {
+        return new CommandExecutionPackage<>(commandExecutor, commandName, error);
+    }
+}
 class RunRemoveSingle implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
     public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
         int row = command.inputs().get(0);
