@@ -19,4 +19,6 @@ public interface PyramidSolitaireView {
   void renderQuit() throws IOException;
 
   void askForInput() throws IOException;
+
+  void informInvalidCommand(String error) throws IOException;
 }

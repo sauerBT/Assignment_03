@@ -42,6 +42,12 @@ public class PyramidSolitaireTextualView implements PyramidSolitaireView{
     }
 
     @Override
+    public void informInvalidCommand(String error) throws IOException {
+        String message = "Invalid move. Play again. " + error + "\n";
+        this.outStream.append(message);
+    }
+
+    @Override
     public String toString() {
         return model.toString();
     }
