@@ -37,6 +37,11 @@ public class PyramidSolitaireTextualView implements PyramidSolitaireView{
     };
 
     @Override
+    public void askForInput() throws IOException {
+        this.outStream.append("Entry not complete! Please add additional inputs!\n");
+    }
+
+    @Override
     public String toString() {
         return model.toString();
     }

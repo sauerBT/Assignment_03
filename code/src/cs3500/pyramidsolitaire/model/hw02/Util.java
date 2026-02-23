@@ -26,6 +26,22 @@ public class Util {
         }
 
         /**
+         * Produce the given list with the element at the given position replaced with the given value.
+         *
+         * @param coll The list to be scrutinized for element replacement.
+         * @param position The position of the element to replace.
+         * @param value The value to add at the given position
+         * @return The list with the replaced value.
+         * @param <K> The element type.
+         */
+        public static <K> List<K> replace(List<K> coll, Integer position, K value) {
+            coll.set(0, value);
+            return clone(coll);
+        }
+
+        public static <K> List<K> getRest(List<K> coll) { return coll.subList(1, coll.size()); }
+
+        /**
          * Produce the first x elements of a given List, with x being a given
          * @param coll The List of elements
          * @param numOfElements The number of x elements to get from the list
