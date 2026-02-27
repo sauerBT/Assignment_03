@@ -115,7 +115,6 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
      * @param model A given Model for the CommandExecutor to interact with.
      * @return The CommandExecutor
      */
-//    private CommandExecutor handleInvalidCommand(Request request, PyramidSolitaireModel<?> model) { return CommandExecutor.of(model, Command.of(CommandName.q, new ArrayList<>())); } // STUB
     private CommandExtractionPackage<CommandExecutor> commandExtractionLoop(PyramidSolitaireModel<?> model) {
         Request request = requestExtractionLoop();
         return CommandExecutor.of(model, request)
@@ -170,7 +169,7 @@ public class PyramidSolitaireTextualController implements PyramidSolitaireContro
         }
     }
     
-    /** TODO
+    /**
      * Given a "Valid" and "Complete" CommandExecutor, execute the command against the model and produce a successfully
      * executed command
      * @param executor The given "Valid" and "Complete" CommandExecutor.
@@ -372,7 +371,7 @@ class CommandExecutor {
         }
     }
 
-    /** TODO
+    /**
      * Given a Request containing a candidate for Inputs of a particular command, produce the Inputs for that command.
      *
      * @param request The given Request.
@@ -393,6 +392,7 @@ class CommandExecutor {
         }
     }
 
+    // TODO : Added descriptor
     CommandExecutionPackage<Optional<CommandExecutor>> executeCommand() {
         return switch (this.command.name()) {
             case CommandName.rm1 -> this.runCommand(new RunRemoveSingle());
@@ -403,8 +403,10 @@ class CommandExecutor {
         };
     }
 
+    // TODO : Added descriptor
     boolean isComplete() { return this.command.inputs().size() >= this.expectedNumberOfInputs(); }
 
+    // TODO : Added descriptor
     Integer expectedNumberOfInputs() {
         return switch (this.command.name()) {
             case CommandName.rm1 -> 2;
@@ -415,9 +417,10 @@ class CommandExecutor {
         };
     }
 
+    // TODO : Added descriptor
     boolean isQuitCommand() { return (this.command.name() == CommandName.q); }
 
-    // TODO convert output to optional
+    // TODO : Added descriptor
     CommandExecutionPackage<Optional<CommandExecutor>> runCommand(BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> func) throws IllegalArgumentException {
             if (!this.isComplete()) {
                 throw new IllegalArgumentException("Invalid number of inputs!");
@@ -535,7 +538,6 @@ class Transmissions {
         }
     }
 
-    // TODO -- should this be moved to a CommandExecutor?
     /**
      * Send request to given model to start the game with the given conditions.
      * MUTATION: Sends a message to the game model to run the startGame method.
@@ -550,7 +552,6 @@ class Transmissions {
         model.startGame(deck, shuffle, numRows, numDraw);
     }
 
-    // TODO
     public static void askForAdditionalInputs(PyramidSolitaireView view) {
         try {
             view.askForInput();
@@ -559,7 +560,6 @@ class Transmissions {
         }
     }
 
-    // TODO
     public static void informInvalidCommand(PyramidSolitaireView view, String err) {
         try {
             view.informInvalidCommand(err);
@@ -603,6 +603,7 @@ class CommandExecutionPackage<U> {
         return new CommandExecutionPackage<>(commandExecutor, commandName, error);
     }
 }
+
 class RunRemoveSingle implements BiFunction<PyramidSolitaireModel<?>, Command, CommandExecutor> {
     public CommandExecutor apply(PyramidSolitaireModel<?> model, Command command) throws IllegalArgumentException {
         int row = command.inputs().get(0);
